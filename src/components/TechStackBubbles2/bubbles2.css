@@ -8,9 +8,9 @@
   position: relative;
   background: radial-gradient(
     ellipse 130% 80% at 50% -5%,
-    #0d1a3a 0%,
-    #050a18 55%,
-    #000510 100%
+    #f8fafc 0%,
+    #f1f5f9 55%,
+    #e2e8f0 100%
   );
   overflow: hidden;
   padding: 60px 24px 24px;
@@ -120,10 +120,10 @@
   font-size: clamp(1.6rem, 4vw, 2.8rem);
   font-weight: 300;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(15, 23, 42, 0.88);
   margin: 0 0 6px;
   line-height: 1.2;
-  text-shadow: 0 0 40px rgba(100, 180, 255, 0.35);
+  text-shadow: 0 0 40px rgba(100, 180, 255, 0.15);
 }
 
 .tsb-title em {
@@ -139,13 +139,13 @@
   font-size: 0.7rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(15, 23, 42, 0.5);
   margin: 0 0 4px;
 }
 
 .tsb-hint {
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.22);
+  color: rgba(15, 23, 42, 0.4);
   letter-spacing: 0.12em;
   margin: 0 0 8px;
 }
@@ -280,7 +280,7 @@
 /* ── Tool name label ─────────────────────────────────────────────────────── */
 .tsb-label {
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(15, 23, 42, 0.82);
   letter-spacing: 0.04em;
   text-align: center;
   position: relative;

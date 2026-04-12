@@ -12,12 +12,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
@@ -44,10 +38,39 @@ body {
 
   100% {
     opacity: 0;
-    transform: translate(var(--drift-x), var(--drift-y))
-      scale(calc(var(--scale) * 0.8))
-      rotate(calc(var(--rotation) * 1.4));
+    transform: translate(var(--drift-x), var(--drift-y)) scale(calc(var(--scale) * 0.8)) rotate(calc(var(--rotation) * 1.4));
     filter: blur(3px);
   }
 }
 
+/* ── Body scroll lock when a modal is open ─────────────── */
+body.modal-open {
+  overflow: hidden;
+  /* Prevent layout shift caused by scrollbar disappearing */
+  padding-right: var(--scrollbar-width, 0px);
+}
+
+/* ── Premium modal scrollbar ───────────────────────────── */
+.modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.5) rgba(255, 255, 255, 0.04);
+}
+
+.modal-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  margin: 12px 0;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #7c3aed, #06b6d4);
+  border-radius: 999px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #a78bfa, #22d3ee);
+}

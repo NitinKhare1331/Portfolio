@@ -346,7 +346,7 @@ export default function TechStackBubbles() {
   }, [handlePointerMove, handlePointerUp]);
 
   return (
-    <section className="relative w-full h-[100vh] bg-[#0a0a0a] flex flex-col pt-16 pb-12 overflow-hidden border-t border-white/5">
+    <section className="relative w-full h-[100vh] bg-gray-50 flex flex-col pt-16 pb-12 overflow-hidden border-t border-gray-200">
       {/* Background glow effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px]" />
@@ -354,13 +354,13 @@ export default function TechStackBubbles() {
       </div>
 
       <div className="relative z-10 text-center mb-10 shrink-0">
-        <div className="inline-block mb-3 px-3 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-400 text-xs font-semibold uppercase tracking-widest backdrop-blur-md">
+        <div className="inline-block mb-3 px-3 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-600 text-xs font-semibold uppercase tracking-widest backdrop-blur-md">
           Crystal Stack
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 drop-shadow-lg">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4 drop-shadow-sm">
           Tools &amp; Software We Use
         </h2>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto px-4">
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto px-4">
           Our technology stack powers everything we build. Interact with the crystals below.
         </p>
       </div>
