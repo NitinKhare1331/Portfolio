@@ -1,0 +1,302 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   TechStackBubbles — bubbles.css
+   Crystal glassmorphism floating bubbles for the Tech Stack section.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* ── Section wrapper ──────────────────────────────────────────────────────── */
+.tsb-section {
+  position: relative;
+  background: radial-gradient(
+    ellipse 130% 80% at 50% -5%,
+    #0d1a3a 0%,
+    #050a18 55%,
+    #000510 100%
+  );
+  overflow: hidden;
+  padding: 60px 24px 24px;
+  font-family: "Syne", "Inter", system-ui, sans-serif;
+}
+
+/* Starfield texture overlay */
+.tsb-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      1px 1px at 12% 18%,
+      rgba(255, 255, 255, 0.28) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 68% 14%,
+      rgba(255, 255, 255, 0.22) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 35% 55%,
+      rgba(255, 255, 255, 0.18) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 82% 72%,
+      rgba(255, 255, 255, 0.24) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 55% 88%,
+      rgba(255, 255, 255, 0.16) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 22% 78%,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.2px 1.2px at 90% 35%,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      0.8px 0.8px at 47% 30%,
+      rgba(255, 255, 255, 0.22) 0%,
+      transparent 100%
+    );
+  pointer-events: none;
+}
+
+/* ── Ambient nebula glow layers ──────────────────────────────────────────── */
+.tsb-nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+.tsb-nebula--purple {
+  width: 520px;
+  height: 320px;
+  background: radial-gradient(
+    ellipse,
+    rgba(100, 70, 200, 0.17) 0%,
+    transparent 70%
+  );
+  top: -100px;
+  left: 8%;
+}
+.tsb-nebula--blue {
+  width: 420px;
+  height: 260px;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 150, 255, 0.13) 0%,
+    transparent 70%
+  );
+  bottom: 8%;
+  right: 4%;
+}
+.tsb-nebula--cyan {
+  width: 320px;
+  height: 200px;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 230, 255, 0.09) 0%,
+    transparent 70%
+  );
+  top: 42%;
+  left: 38%;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.tsb-header {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.tsb-title {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 6px;
+  line-height: 1.2;
+  text-shadow: 0 0 40px rgba(100, 180, 255, 0.35);
+}
+
+.tsb-title em {
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(135deg, #64b5f6 0%, #e040fb 50%, #00e5ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tsb-subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin: 0 0 4px;
+}
+
+.tsb-hint {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.22);
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+}
+
+/* ── Bubble container ────────────────────────────────────────────────────── */
+.tsb-container {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  touch-action: none;
+  overflow: hidden;
+}
+
+/* ── Individual bubble wrapper ───────────────────────────────────────────── */
+.tsb-bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  cursor: grab;
+  user-select: none;
+  z-index: 10;
+  -webkit-tap-highlight-color: transparent;
+}
+.tsb-bubble:active {
+  cursor: grabbing;
+}
+
+/* ── Crystal sphere body ─────────────────────────────────────────────────── */
+.tsb-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: radial-gradient(
+    circle at 38% 32%,
+    rgba(255, 255, 255, 0.17) 0%,
+    rgba(255, 255, 255, 0.04) 55%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+/* Top-left specular highlight (simulates glass reflection) */
+.tsb-inner::before {
+  content: "";
+  position: absolute;
+  top: 7%;
+  left: 13%;
+  width: 46%;
+  height: 27%;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 50%;
+  transform: rotate(-28deg);
+  pointer-events: none;
+}
+
+/* Bottom-right secondary glint */
+.tsb-inner::after {
+  content: "";
+  position: absolute;
+  bottom: 11%;
+  right: 11%;
+  width: 18%;
+  height: 13%;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 255, 255, 0.22) 0%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.tsb-bubble:hover .tsb-inner {
+  transform: scale(1.1);
+}
+
+/* ── Decorative outer rings ──────────────────────────────────────────────── */
+.tsb-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.tsb-ring--1 {
+  inset: -3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.tsb-ring--2 {
+  inset: -7px;
+  border: 0.5px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── Icon ────────────────────────────────────────────────────────────────── */
+.tsb-icon {
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.55));
+}
+.tsb-icon--invert {
+  filter: invert(1) brightness(1.5) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.55));
+}
+
+/* ── Initials fallback ───────────────────────────────────────────────────── */
+.tsb-initials {
+  font-weight: 800;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* ── Tool name label ─────────────────────────────────────────────────────── */
+.tsb-label {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.04em;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+  padding: 0 8%;
+  line-height: 1.1;
+}
+
+/* ── Responsive tweaks ───────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .tsb-bubble {
+    /* Slightly smaller on mobile — handled via JS (reduce TOOLS sizes) */
+    transform-origin: center center;
+  }
+  .tsb-container {
+    min-height: 90vh;
+  }
+}
